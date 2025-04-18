@@ -1,26 +1,37 @@
-def calc_num_primo(num):
+#Probando mueva implementación:
+def is_prime(number):
     
-    cont = 0
+    if number <= 1:
+        return False
+        
+    for divisor in range(2,int(number ** 0.5) + 1):
+        
+        if (number % divisor) == 0:
+            return False
     
-    for divisores in range(1, num+1):
-       if (num % divisores) == 0:
-           cont += 1
-    
-    if cont == 2:
-        print(f'{num} es un número primo')
-    else:
-        print(f'{num} no es un número primo')
+    return True
 
 def main():
     
+    print('-- Prime Numbers --')
+    
     while True:
-        print('Numeros primos')
-        numero = int(input('Ingresa tu número: '))
-        calc_num_primo(numero)
-        opc = input('¿Desea continuar? (S/N): ').lower()
         
-        if opc == 'n':
-            break
-        
+        try:
+            user_number = int(input ('Enter a Number: ')
+            
+            if is_prime(user_number):
+                print(f'{user_number} is a prime number!')
+            else:
+                print(f'{user_number} is not a prime number!')
+                
+            option = input('Press \'0\' to exit. Any key to continue: ')
+            
+            if option == '0':
+                break
+            
+        except ValueError:
+            print('Invalid Input!')
+            
 if __name__ == '__main__':
     main()
